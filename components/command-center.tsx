@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { AlertTriangle, ArrowUpRight, CheckCircle2, ChevronRight, CircleDollarSign, Clock3, ShieldCheck, Users } from "lucide-react";
 import { calculateSri, lifecycleStages } from "@/lib/lifecycle";
+import { BrandMark } from "@/components/brand-mark";
 
 const programs = [
   { name: "Digital Claims Modernization", sponsor: "L. Ortiz", stage: 7, health: "At risk", cpi: 0.92, spi: 0.88, approvals: 2, launch: "Oct 18" },
@@ -29,12 +30,12 @@ export function CommandCenter() {
   return <main className="min-h-screen bg-[#f6f8fb]">
     <header className="border-b border-slate-200 bg-white px-6 py-4 lg:px-10">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        <div className="flex items-center gap-3"><div className="grid size-9 place-items-center rounded-xl bg-slate-900 text-sm font-black text-white">P</div><div><h1 className="text-lg font-bold tracking-tight text-slate-900">IT-PMO Engine</h1><p className="text-xs text-slate-500">Enterprise delivery lifecycle command center</p></div></div>
+        <div className="flex items-center gap-3"><BrandMark /><div><h1 className="text-lg font-bold tracking-tight text-slate-900">TARMAC</h1><p className="text-xs text-slate-500">Enterprise IT delivery control plane</p></div></div>
         <div className="flex items-center gap-3"><span className="hidden text-sm text-slate-500 sm:inline">Portfolio period · Q3 FY26</span><button className="rounded-lg bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white shadow-sm">New intake</button></div>
       </div>
     </header>
     <div className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
-      <div className="mb-7 flex flex-wrap items-end justify-between gap-4"><div><p className="text-sm font-semibold text-indigo-600">Portfolio overview</p><h2 className="mt-1 text-3xl font-bold tracking-tight text-slate-900">Make delivery decisions with confidence.</h2></div><p className="max-w-sm text-sm leading-6 text-slate-500">Govern investment, unblock dependencies, and enforce every release control from a single operating view.</p></div>
+      <div className="mb-7 flex flex-wrap items-end justify-between gap-4"><div><p className="text-sm font-semibold text-indigo-600">Technology Alignment, Readiness, Milestones, Assurance &amp; Control</p><h2 className="mt-1 text-3xl font-bold tracking-tight text-slate-900">Plan with precision. Launch with confidence.</h2></div><p className="max-w-sm text-sm leading-6 text-slate-500">Govern investment, unblock dependencies, and create the evidence needed for every confident release decision.</p></div>
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Metric icon={<CircleDollarSign />} title="Forecast at completion" value="$8.42m" hint="2.1% under baseline" tone="indigo" />
         <Metric icon={<ShieldCheck />} title="Release controls" value="91%" hint="31 of 34 gates passed" tone="emerald" />

@@ -1,0 +1,22 @@
+name: Feature request
+description: Propose a focused product capability for TARMAC.
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Problem to solve
+      description: Describe the delivery, portfolio, or governance problem.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed outcome
+      description: Describe the desired user-visible outcome and success measure.
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Control impact
+      options:
+        - label: This may affect lifecycle gates, approvals, auditability, or role access.
