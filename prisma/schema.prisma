@@ -1,0 +1,404 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  IT_PGM
+  SPONSOR
+  ARCHITECT
+  INFOSEC
+  QA_LEAD
+  DEV
+  BUSINESS_VP
+  CAB_MEMBER
+  FINANCE
+  ADMIN
+}
+
+enum ProgramStatus {
+  DRAFT
+  INTAKE
+  DISCOVERY
+  BRD_REVIEW
+  PRD_REVIEW
+  ARCHITECTURE_REVIEW
+  PLANNING
+  EXECUTION
+  UAT
+  LAUNCH_READY
+  LAUNCH
+  HYPERCARE
+  CLOSED
+  ON_HOLD
+}
+
+enum ApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+  DELEGATED
+}
+
+enum RequirementPriority {
+  MUST
+  SHOULD
+  COULD
+  WONT
+}
+
+enum DefectSeverity {
+  SEV1_BLOCKER
+  SEV2_CRITICAL
+  SEV3_MAJOR
+  SEV4_MINOR
+}
+
+enum DefectStatus {
+  OPEN
+  TRIAGED
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+  DEFERRED
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum ChangeStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+  IMPLEMENTED
+}
+
+enum GateStatus {
+  NOT_READY
+  PENDING
+  APPROVED
+  BLOCKED
+  WAIVED
+}
+
+model User {
+  id String @id @default(cuid())
+  email String @unique
+  name String
+  role Role
+  active Boolean @default(true)
+  allocations CapacityAllocation[]
+  approvals Approval[] @relation("Approver")
+  createdPrograms Program[] @relation("ProgramManager")
+  sponsoredPrograms Program[] @relation("ProgramSponsor")
+  createdAt DateTime @default(now())
+}
+
+model Program {
+  id String @id @default(cuid())
+  title String
+  sponsorId String
+  itPgmId String
+  status ProgramStatus @default(INTAKE)
+  targetLaunchWindow DateTime?
+  estimatedBudget Decimal? @db.Decimal(14, 2)
+  businessImpact Int @default(1)
+  strategicRoi Int @default(1)
+  engineeringEffort Int @default(1)
+  baselineVersion Int @default(1)
+  sponsor User @relation("ProgramSponsor", fields: [sponsorId], references: [id])
+  itPgm User @relation("ProgramManager", fields: [itPgmId], references: [id])
+  tracks ProjectTrack[]
+  score PrioritizationScore?
+  blastRadius BlastRadius?
+  requirementSessions RequirementSession[]
+  requirements Requirement[]
+  brd BRD?
+  gates ReleaseGate[]
+  approvals Approval[]
+  risks Risk[]
+  changes ChangeRequest[]
+  allocations CapacityAllocation[]
+  metrics ProgramMetric[]
+  benefits Benefit[]
+  baselines Baseline[]
+  defects Defect[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProjectTrack {
+  id String @id @default(cuid())
+  programId String
+  name String
+  ownerId String?
+  status ProgramStatus @default(PLANNING)
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  dependenciesFrom Dependency[] @relation("DependencySource")
+  dependenciesTo Dependency[] @relation("DependencyTarget")
+  prds PRD[]
+  tdds TDD[]
+  milestones Milestone[]
+  testCases TestCase[]
+}
+
+model PrioritizationScore {
+  id String @id @default(cuid())
+  programId String @unique
+  sri Decimal @db.Decimal(9, 2)
+  confidence Int @default(80)
+  calculatedAt DateTime @default(now())
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+}
+
+model BlastRadius {
+  id String @id @default(cuid())
+  programId String @unique
+  businessUnits Int
+  dailyActiveUsers Int
+  criticalityTier Int
+  score Decimal @db.Decimal(14, 2)
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+}
+
+model RequirementSession {
+  id String @id @default(cuid())
+  programId String
+  businessUnit String
+  facilitatorId String
+  scheduledAt DateTime
+  completedAt DateTime?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  requirements Requirement[]
+}
+
+model Requirement {
+  id String @id @default(cuid())
+  programId String
+  sessionId String?
+  title String
+  description String
+  priority RequirementPriority
+  acceptanceCriteria String?
+  version Int @default(1)
+  conflictKey String?
+  validatedAt DateTime?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  session RequirementSession? @relation(fields: [sessionId], references: [id])
+}
+
+model BRD {
+  id String @id @default(cuid())
+  programId String @unique
+  version Int @default(1)
+  content Json
+  status GateStatus @default(PENDING)
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+}
+
+model PRD {
+  id String @id @default(cuid())
+  trackId String
+  version Int @default(1)
+  content Json
+  status GateStatus @default(PENDING)
+  track ProjectTrack @relation(fields: [trackId], references: [id], onDelete: Cascade)
+}
+
+model TDD {
+  id String @id @default(cuid())
+  trackId String
+  version Int @default(1)
+  architecture Json
+  apiSchemas Json
+  status GateStatus @default(PENDING)
+  track ProjectTrack @relation(fields: [trackId], references: [id], onDelete: Cascade)
+}
+
+model Dependency {
+  id String @id @default(cuid())
+  sourceTrackId String
+  targetTrackId String
+  type String
+  critical Boolean @default(false)
+  sourceTrack ProjectTrack @relation("DependencySource", fields: [sourceTrackId], references: [id], onDelete: Cascade)
+  targetTrack ProjectTrack @relation("DependencyTarget", fields: [targetTrackId], references: [id], onDelete: Cascade)
+  @@unique([sourceTrackId, targetTrackId])
+}
+
+model Milestone {
+  id String @id @default(cuid())
+  trackId String
+  name String
+  dueDate DateTime
+  completedAt DateTime?
+  critical Boolean @default(false)
+  track ProjectTrack @relation(fields: [trackId], references: [id], onDelete: Cascade)
+  tasks Task[]
+}
+
+model Task {
+  id String @id @default(cuid())
+  milestoneId String?
+  title String
+  status String @default("NOT_STARTED")
+  estimateHours Int?
+  assigneeId String?
+  milestone Milestone? @relation(fields: [milestoneId], references: [id], onDelete: SetNull)
+}
+
+model TestCase {
+  id String @id @default(cuid())
+  trackId String
+  title String
+  automated Boolean @default(false)
+  passRate Int @default(0)
+  lastRunAt DateTime?
+  track ProjectTrack @relation(fields: [trackId], references: [id], onDelete: Cascade)
+  defects Defect[]
+}
+
+model Defect {
+  id String @id @default(cuid())
+  programId String
+  testCaseId String?
+  title String
+  severity DefectSeverity
+  status DefectStatus @default(OPEN)
+  slaDueAt DateTime?
+  rca RCA?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  testCase TestCase? @relation(fields: [testCaseId], references: [id])
+}
+
+model RCA {
+  id String @id @default(cuid())
+  defectId String @unique
+  fiveWhys Json
+  ownerId String
+  approvedAt DateTime?
+  defect Defect @relation(fields: [defectId], references: [id], onDelete: Cascade)
+}
+
+model ReleaseGate {
+  id String @id @default(cuid())
+  programId String
+  stage ProgramStatus
+  name String
+  status GateStatus @default(NOT_READY)
+  requiredRoles Role[]
+  waiverReason String?
+  expiresAt DateTime?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  @@unique([programId, stage, name])
+}
+
+model Approval {
+  id String @id @default(cuid())
+  programId String
+  approverId String
+  gateName String
+  status ApprovalStatus @default(PENDING)
+  delegatedToId String?
+  comment String?
+  dueAt DateTime?
+  decidedAt DateTime?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  approver User @relation("Approver", fields: [approverId], references: [id])
+}
+
+model Risk {
+  id String @id @default(cuid())
+  programId String
+  title String
+  probability Int
+  impact Int
+  level RiskLevel
+  mitigation String?
+  ownerId String
+  resolvedAt DateTime?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+}
+
+model ChangeRequest {
+  id String @id @default(cuid())
+  programId String
+  title String
+  rationale String
+  impact Json
+  status ChangeStatus @default(DRAFT)
+  requestedById String
+  approvedAt DateTime?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+}
+
+model CapacityAllocation {
+  id String @id @default(cuid())
+  userId String
+  programId String
+  percent Int
+  startsOn DateTime
+  endsOn DateTime
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+}
+
+model Baseline {
+  id String @id @default(cuid())
+  programId String
+  version Int
+  scope Json
+  budget Decimal? @db.Decimal(14, 2)
+  plannedFinish DateTime?
+  approvedAt DateTime?
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  @@unique([programId, version])
+}
+
+model ProgramMetric {
+  id String @id @default(cuid())
+  programId String
+  asOf DateTime
+  pv Decimal @db.Decimal(14, 2)
+  ev Decimal @db.Decimal(14, 2)
+  ac Decimal @db.Decimal(14, 2)
+  cpi Decimal @db.Decimal(6, 3)
+  spi Decimal @db.Decimal(6, 3)
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  @@unique([programId, asOf])
+}
+
+model Benefit {
+  id String @id @default(cuid())
+  programId String
+  kpi String
+  baseline Decimal @db.Decimal(14, 2)
+  target Decimal @db.Decimal(14, 2)
+  actual30 Decimal? @db.Decimal(14, 2)
+  actual60 Decimal? @db.Decimal(14, 2)
+  actual90 Decimal? @db.Decimal(14, 2)
+  ownerId String
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id String @id @default(cuid())
+  actorId String?
+  entityType String
+  entityId String
+  action String
+  before Json?
+  after Json?
+  createdAt DateTime @default(now())
+  @@index([entityType, entityId, createdAt])
+}
