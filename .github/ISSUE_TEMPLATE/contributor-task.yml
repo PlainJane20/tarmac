@@ -1,0 +1,25 @@
+name: Bounded contributor task
+description: Propose a documentation, design, test, or implementation task with reviewable acceptance criteria.
+title: "task: "
+labels: [community]
+body:
+  - type: textarea
+    attributes:
+      label: Outcome
+      description: What useful, reviewable outcome should exist when complete?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Scope and acceptance criteria
+      description: Name the files/surfaces and how a reviewer can verify the result.
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Repository boundaries
+      options:
+        - label: The task can be completed without credentials, production data, or confidential material.
+          required: true
+        - label: The task does not assume an open-source license or reuse permission.
+          required: true

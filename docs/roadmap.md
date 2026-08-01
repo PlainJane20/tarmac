@@ -1,25 +1,14 @@
 # Delivery roadmap
 
-## Phase 1 — Demonstrable foundation
+The canonical outcome-based roadmap is maintained in the [TARMAC Flight Deck](../flight-deck/09-roadmap.md).
 
-- [x] Enterprise lifecycle data model
-- [x] Gate validation and launch-blocking rules
-- [x] Executive command center
-- [x] Defect/RCA triage workbench
-- [x] CI and professional repository standards
+The sequence is:
 
-## Phase 2 — Persistent workflow demonstration
+1. Foundation v0.1 — shared product and operating contract.
+2. Workflow — durable TARMAC spine, evidence, decisions, and audit.
+3. Governance — identity, authorization, policy, privacy, and pilot trust.
+4. Automation — enterprise adapters, reconciliation, and operations.
+5. Intelligence — evaluated assistants and explainable forecasts.
+6. Ecosystem — extension contracts after ownership and product fit are resolved.
 
-- [ ] PostgreSQL provisioning and Prisma migration
-- [ ] Seeded users, programs, tracks, approvals, and defects
-- [ ] Prisma-backed program, approval, and defect APIs
-- [ ] Program-intake and approval workbenches
-- [ ] Live benefits and EVM reporting
-
-## Phase 3 — Enterprise integration and controls
-
-- [ ] SSO and role/program-scoped authorization
-- [ ] Outbox-based integration events
-- [ ] Jira/Azure DevOps and Slack/Teams adapters
-- [ ] Change-control, waiver, and audit workbenches
-- [ ] Automated quality, security, and deployment evidence
+This file remains as a stable link for earlier repository references.

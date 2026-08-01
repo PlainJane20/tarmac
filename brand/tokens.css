@@ -1,0 +1,26 @@
+:root {
+  --tarmac-night: #07111f;
+  --tarmac-deck: #0d1b2a;
+  --tarmac-panel: #12263a;
+  --tarmac-runway: #f4f1e8;
+  --tarmac-mist: #a9b7c6;
+  --tarmac-signal: #5eead4;
+  --tarmac-beacon: #f5b942;
+  --tarmac-sky: #7dd3fc;
+  --tarmac-alert: #fb7185;
+  --tarmac-font-sans: Inter, Aptos, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --tarmac-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --tarmac-radius-sm: 0.5rem;
+  --tarmac-radius-md: 0.875rem;
+  --tarmac-radius-lg: 1.5rem;
+  --tarmac-duration-fast: 120ms;
+  --tarmac-duration-standard: 220ms;
+  --tarmac-space-1: 0.25rem;
+  --tarmac-space-2: 0.5rem;
+  --tarmac-space-3: 0.75rem;
+  --tarmac-space-4: 1rem;
+  --tarmac-space-6: 1.5rem;
+  --tarmac-space-8: 2rem;
+  --tarmac-space-12: 3rem;
+  --tarmac-space-16: 4rem;
+}

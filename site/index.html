@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TARMAC is the Enterprise Delivery Control Plane: from idea to impact, governed by design.">
+  <meta name="theme-color" content="#07111f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TARMAC — The Enterprise Delivery Control Plane">
+  <meta property="og:description" content="From idea to impact. Governed by design.">
+  <meta property="og:image" content="https://plainjane20.github.io/tarmac/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TARMAC — The Enterprise Delivery Control Plane">
+  <meta name="twitter:description" content="From idea to impact. Governed by design.">
+  <meta name="twitter:image" content="https://plainjane20.github.io/tarmac/assets/social-preview.png">
+  <title>TARMAC — The Enterprise Delivery Control Plane</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="TARMAC home">
+      <span class="brand-mark" aria-hidden="true"><span>T</span></span>
+      <span>TARMAC</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#model">Model</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#value">Value</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <a class="header-action" href="https://github.com/PlainJane20/tarmac">GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="grid-field" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Foundation v0.1.0 · Flight Ready</p>
+        <h1 id="hero-title">The Enterprise<br><em>Delivery Control Plane</em></h1>
+        <p class="hero-tagline">From idea to impact. Governed by design.</p>
+        <p class="hero-lede">TARMAC connects portfolio decisions, architecture, release evidence, production reality, automation, and compliance—without replacing the systems teams already use.</p>
+        <div class="actions"><a class="button primary" href="#model">Explore the operating model <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://github.com/PlainJane20/tarmac/blob/main/flight-deck/README.md">Open the Flight Deck</a></div>
+      </div>
+
+      <div class="control-card reveal" aria-label="Illustrative delivery control summary">
+        <div class="card-head"><span>PROGRAM / DCM-042</span><span class="live">Evidence current</span></div>
+        <div class="route-line" aria-hidden="true"><i class="done"></i><b></b><i class="done"></i><b></b><i class="active"></i><b></b><i></i></div>
+        <div class="route-labels"><span>Triage</span><span>Architecture</span><span>Release</span><span>Monitoring</span></div>
+        <div class="decision"><small>NEXT GOVERNED DECISION</small><strong>Production authorization</strong><p>31 passed · 2 pending · 1 blocked</p></div>
+        <div class="decision-row"><span>Security evidence</span><b class="pass">Passed</b></div>
+        <div class="decision-row"><span>Operational readiness</span><b class="pending">Pending</b></div>
+        <div class="decision-row"><span>SEV2 root-cause action</span><b class="blocked">Blocked</b></div>
+        <div class="cross-strip"><span>A</span> Automation assembles evidence <span>C</span> Compliance retains the decision</div>
+      </div>
+    </section>
+
+    <section class="problem light" aria-labelledby="problem-title">
+      <div class="section-head reveal"><p class="kicker">The coordination gap</p><h2 id="problem-title">Delivery does not fail in one tool.<br>It fails <em>between them.</em></h2></div>
+      <div class="problem-grid">
+        <article class="reveal"><span>01</span><h3>Fragmented evidence</h3><p>Strategy, work, security, deployment, operations, and value live in systems with different owners and clocks.</p></article>
+        <article class="reveal"><span>02</span><h3>Implicit governance</h3><p>Required decisions arrive through institutional memory, manual checklists, and late escalation.</p></article>
+        <article class="reveal"><span>03</span><h3>Reporting without action</h3><p>Leaders receive lagging summaries instead of the precise decision that can still change an outcome.</p></article>
+      </div>
+    </section>
+
+    <section class="name-section" aria-labelledby="name-title">
+      <div class="section-head reveal"><p class="kicker">The name is the model</p><h2 id="name-title">Six capabilities.<br>One governed loop.</h2></div>
+      <div class="letter-grid">
+        <article class="letter-card pillar reveal"><span>T</span><div><h3>Triage</h3><p>Turn demand and production feedback into an explainable portfolio decision.</p></div></article>
+        <article class="letter-card pillar reveal"><span>A</span><div><h3>Architecture</h3><p>Turn intent into a sound, secure, reusable, and evidenced solution direction.</p></div></article>
+        <article class="letter-card pillar reveal"><span>R</span><div><h3>Release</h3><p>Turn completed work into an explicit production decision with current evidence.</p></div></article>
+        <article class="letter-card pillar reveal"><span>M</span><div><h3>Monitoring</h3><p>Turn service health and business outcomes into the next intervention.</p></div></article>
+        <article class="letter-card cross reveal"><span>A</span><div><h3>Automation & CI/CD</h3><p>Gather, evaluate, route, reconcile, and accelerate evidence across every pillar.</p></div></article>
+        <article class="letter-card cross governance reveal"><span>C</span><div><h3>Compliance & Governance</h3><p>Apply policy, decision rights, exceptions, retention, and audit across every pillar.</p></div></article>
+      </div>
+    </section>
+
+    <section class="model-section light" id="model" aria-labelledby="model-title">
+      <div class="section-head reveal"><p class="kicker">Interactive operating model</p><h2 id="model-title">The delivery spine closes the loop.</h2><p>Select a pillar to inspect its decision, evidence, and feedback contract.</p></div>
+      <div class="model-shell reveal">
+        <div class="model-tabs" role="tablist" aria-label="TARMAC delivery pillars">
+          <button type="button" role="tab" aria-selected="true" aria-controls="pillar-panel" data-pillar="0"><span>T</span>Triage</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="pillar-panel" data-pillar="1"><span>A</span>Architecture</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="pillar-panel" data-pillar="2"><span>R</span>Release</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="pillar-panel" data-pillar="3"><span>M</span>Monitoring</button>
+        </div>
+        <article class="pillar-panel" id="pillar-panel" role="tabpanel" tabindex="0" aria-live="polite">
+          <div class="pillar-letter" data-pillar-letter>T</div>
+          <div class="pillar-copy"><p class="panel-label">GOVERNED DECISION</p><h3 data-pillar-title>Accept demand into portfolio assessment</h3><p data-pillar-copy>Clarify intended outcome, sponsor authority, urgency, feasibility, initial risk, and baseline plan before significant delivery capacity is committed.</p></div>
+          <dl class="pillar-details"><div><dt>Accountable</dt><dd data-pillar-owner>ITPMO lead</dd></div><div><dt>Evidence</dt><dd data-pillar-evidence>Outcome premise · sponsor · initial risk · baseline</dd></div><div><dt>Feedback</dt><dd data-pillar-feedback>Reason, conditions, owner, and next review</dd></div></dl>
+        </article>
+        <div class="cross-cuts" aria-label="Cross-cutting capabilities"><div><b>A</b><span><strong>Automation & CI/CD</strong><small data-auto>Checks completeness, calculates explainable priority, routes the decision, and starts the SLA.</small></span></div><div><b>C</b><span><strong>Compliance & Governance</strong><small data-governance>Applies intake policy, data classification, sponsor authority, and risk-tier requirements.</small></span></div></div>
+      </div>
+    </section>
+
+    <section class="itpmo-section" aria-labelledby="itpmo-title">
+      <div class="section-head reveal"><p class="kicker">A modern ITPMO</p><h2 id="itpmo-title">From status collection<br>to decision enablement.</h2></div>
+      <div class="shift-grid reveal">
+        <div class="old-world"><p>TRADITIONAL PATTERN</p><ol><li>Email and spreadsheet intake</li><li>Late architecture meeting</li><li>Manual release checklist</li><li>Monthly status reconstruction</li><li>Audit evidence scramble</li></ol></div>
+        <div class="shift-arrow" aria-hidden="true">→</div>
+        <div class="new-world"><p>TARMAC OPERATING MODEL</p><ol><li>Structured triage and decision SLA</li><li>Versioned architecture evidence</li><li>Connected readiness and blockers</li><li>Live portfolio interventions</li><li>Retained policy and decision history</li></ol></div>
+      </div>
+      <p class="itpmo-callout reveal">TARMAC does not centralize every decision in the ITPMO. It gives the ITPMO a shared operating rhythm while architects, risk owners, release authorities, sponsors, and Finance retain accountability.</p>
+    </section>
+
+    <section class="architecture-section light" id="architecture" aria-labelledby="architecture-title">
+      <div class="section-head reveal"><p class="kicker">Enterprise architecture</p><h2 id="architecture-title">A control plane—not another system of work.</h2><p>Authoritative tools keep their native records. TARMAC governs the cross-system decisions.</p></div>
+      <div class="architecture-shell reveal">
+        <div class="system-column sources"><span>Strategy & Finance</span><span>Planning & Work</span><span>Source · CI/CD · Quality</span><span>ITSM · Observability</span></div>
+        <div class="plane"><small>CONTROL PLANE</small><strong>TARMAC</strong><span>Triage · Architecture · Release · Monitoring</span><span>Automation · Compliance · Evidence · Audit</span></div>
+        <div class="system-column outcomes"><span>Governed Decisions</span><span>Portfolio Intervention</span><span>Release Confidence</span><span>Realized Value</span></div>
+      </div>
+      <div class="architecture-points"><article class="reveal"><span>01</span><h3>Evidence with provenance</h3><p>Every fact carries source, scope, time, freshness, and validation state.</p></article><article class="reveal"><span>02</span><h3>Rules with reasons</h3><p>Versioned policy returns findings, missing conditions, owners, and waiver state.</p></article><article class="reveal"><span>03</span><h3>Decisions with accountability</h3><p>Authorized people decide; TARMAC preserves authority, evidence, rationale, and history.</p></article></div>
+      <a class="text-link" href="https://github.com/PlainJane20/tarmac/tree/main/architecture">Explore the architecture catalog <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="value-section" id="value" aria-labelledby="value-title">
+      <div class="section-head reveal"><p class="kicker">Transparent value model</p><h2 id="value-title">Model opportunity.<br><em>Do not manufacture savings.</em></h2><p>Every output below is a modeled scenario. It is not an observed result, approved business case, or guaranteed saving.</p></div>
+      <div class="calculator reveal" data-calculator>
+        <form class="calculator-inputs" aria-label="Value-model assumptions">
+          <fieldset><legend>Capacity hypothesis</legend><label>Initiatives per year <output data-output="initiatives">40</output><input name="initiatives" type="range" min="5" max="200" step="5" value="40"></label><label>Baseline preparation hours <output data-output="hours">100</output><input name="hours" type="range" min="20" max="400" step="10" value="100"></label><label>Improvement hypothesis <output data-output="improvement">25%</output><input name="improvement" type="range" min="5" max="60" step="5" value="25"></label><label>Blended hourly cost <output data-output="hourlyCost">$95</output><input name="hourlyCost" type="range" min="40" max="250" step="5" value="95"></label></fieldset>
+          <fieldset><legend>Delay and risk hypotheses</legend><label>Initiatives accelerated <output data-output="accelerated">8</output><input name="accelerated" type="range" min="0" max="50" step="1" value="8"></label><label>Weeks accelerated <output data-output="weeks">2</output><input name="weeks" type="range" min="0" max="12" step="1" value="2"></label><label>Value per week <output data-output="weeklyValue">$15,000</output><input name="weeklyValue" type="range" min="0" max="100000" step="5000" value="15000"></label><label>Annual risk exposure <output data-output="riskExposure">$250,000</output><input name="riskExposure" type="range" min="0" max="2000000" step="50000" value="250000"></label><label>Modeled risk reduction <output data-output="riskReduction">10%</output><input name="riskReduction" type="range" min="0" max="50" step="5" value="10"></label></fieldset>
+          <fieldset><legend>Confidence and cost</legend><label>Confidence adjustment <output data-output="confidence">65%</output><input name="confidence" type="range" min="25" max="100" step="5" value="65"></label><label>Annual platform cost <output data-output="platformCost">$125,000</output><input name="platformCost" type="range" min="10000" max="500000" step="5000" value="125000"></label></fieldset>
+        </form>
+        <div class="calculator-results">
+          <p class="model-warning">MODELED SCENARIO · NOT A GUARANTEE</p>
+          <div class="value-total"><span>Total modeled value</span><strong data-result="total">$234,000</strong><small>capacity + delay + risk reduction</small></div>
+          <div class="value-breakdown"><div><span>Capacity released</span><strong data-result="hours">1,000 hours</strong><small data-result="capacity">$61,750 modeled value</small></div><div><span>Cost-of-delay reduction</span><strong data-result="delay">$156,000</strong><small>modeled economic value</small></div><div><span>Risk-adjusted loss reduction</span><strong data-result="risk">$16,250</strong><small>modeled expected-loss change</small></div><div><span>Net modeled value</span><strong data-result="net">$109,000</strong><small data-result="roi">87.2% modeled ROI</small></div></div>
+          <div class="cashable"><span>Cashable savings</span><strong>$0 assumed</strong><p>Cash or budget reduction must be confirmed separately by Finance. Capacity released is not automatically a saving.</p></div>
+          <details><summary>Calculation and caveats</summary><p>Capacity = initiatives × baseline hours × improvement × hourly cost × confidence. Delay = accelerated initiatives × weeks × weekly value × confidence. Risk = annual exposure × modeled reduction × confidence. Net value subtracts annual platform cost. Avoided cost, redirected spend, realized benefits, and cashable savings require separate evidence.</p></details>
+          <a class="text-link" href="https://github.com/PlainJane20/tarmac/blob/main/flight-deck/08-metrics-and-value.md">Read the complete value method <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics-section light" aria-labelledby="metrics-title">
+      <div class="section-head reveal"><p class="kicker">Software delivery performance</p><h2 id="metrics-title">Five DORA metrics.<br>No context-free scorecards.</h2><p>Measure applications or services over time. Improve the system; do not rank unlike teams.</p></div>
+      <div class="dora-grid"><article class="reveal"><span>THROUGHPUT 01</span><h3>Change lead time</h3><p>Commit to successful production deployment.</p></article><article class="reveal"><span>THROUGHPUT 02</span><h3>Deployment frequency</h3><p>Deployments per period or time between deployments.</p></article><article class="reveal"><span>THROUGHPUT 03</span><h3>Failed deployment recovery time</h3><p>Time to recover from a failed deployment requiring intervention.</p></article><article class="reveal"><span>INSTABILITY 04</span><h3>Change fail rate</h3><p>Deployments requiring immediate intervention.</p></article><article class="reveal"><span>INSTABILITY 05</span><h3>Deployment rework rate</h3><p>Unplanned deployments resulting from a production incident.</p></article></div>
+      <a class="text-link" href="https://github.com/PlainJane20/tarmac/blob/main/docs/metrics/catalog.md">Open the metric catalog <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-head reveal"><p class="kicker">Product horizons</p><h2 id="roadmap-title">Earn trust before autonomy.</h2></div>
+      <ol class="timeline"><li class="complete reveal"><span>01</span><div><small>FOUNDATION v0.1</small><h3>Shared product contract</h3><p>Operating model, Flight Deck, brand, architecture, metrics, site, and validation.</p></div></li><li class="active reveal"><span>02</span><div><small>WORKFLOW</small><h3>Durable TARMAC spine</h3><p>Persistent evidence, findings, decisions, exceptions, audit, and production feedback.</p></div></li><li class="reveal"><span>03</span><div><small>GOVERNANCE</small><h3>Pilot-ready trust</h3><p>Identity, scoped authorization, privacy, retention, policy, and operations.</p></div></li><li class="reveal"><span>04</span><div><small>AUTOMATION</small><h3>Connected evidence</h3><p>Verified adapters, reconciliation, provenance, freshness, and telemetry.</p></div></li><li class="reveal"><span>05</span><div><small>INTELLIGENCE</small><h3>Governed assistance</h3><p>Evaluated, cited summaries and recommendations with human authority.</p></div></li><li class="reveal"><span>06</span><div><small>ECOSYSTEM</small><h3>Extension contracts</h3><p>Templates and integrations after ownership, licensing, trust, and product fit are resolved.</p></div></li></ol>
+      <a class="text-link" href="https://github.com/PlainJane20/tarmac/blob/main/flight-deck/09-roadmap.md">Read the exit evidence <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="closing light" aria-labelledby="closing-title">
+      <div class="closing-copy reveal"><p class="kicker">Foundation v0.1.0</p><h2 id="closing-title">The runway is clear.<br>The decisions are visible.</h2><p>Explore the reference implementation, challenge the operating model, and help make enterprise delivery more measurable and accountable.</p><div class="actions"><a class="button dark" href="https://github.com/PlainJane20/tarmac">Explore the repository</a><a class="button light-button" href="https://github.com/PlainJane20/tarmac/blob/main/flight-deck/README.md">Read the Flight Deck</a></div></div>
+      <div class="open-decision reveal"><span>OPEN DECISION OD-001</span><h3>Ownership and license remain unresolved.</h3><p>The repository is currently All Rights Reserved and must not be represented as open source until the owner makes an explicit, informed decision.</p><a href="https://github.com/PlainJane20/tarmac/blob/main/flight-deck/11-open-decisions.md">Review open decisions →</a></div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="brand-mark" aria-hidden="true"><span>T</span></span><span>TARMAC<small>From idea to impact. Governed by design.</small></span></div><div class="footer-links"><a href="https://github.com/PlainJane20/tarmac">Repository</a><a href="https://github.com/PlainJane20/tarmac/tree/main/architecture">Architecture</a><a href="https://github.com/PlainJane20/tarmac/blob/main/SECURITY.md">Security</a><a href="https://github.com/PlainJane20/tarmac/blob/main/LICENSE">License</a></div><p>Early-stage reference implementation · Modeled scenarios are not guaranteed results · © 2026 Navi Sohi · All rights reserved.</p></footer>
+</body>
+</html>

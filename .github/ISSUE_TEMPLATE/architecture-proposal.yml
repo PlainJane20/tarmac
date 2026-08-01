@@ -1,0 +1,33 @@
+name: Architecture proposal
+description: Propose a change to a trust boundary, domain, integration, data, or deployment decision.
+title: "architecture: "
+labels: [architecture]
+body:
+  - type: textarea
+    attributes:
+      label: Context and decision drivers
+      description: Explain what forces a decision now and which constraints matter.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Options considered
+      description: Compare benefits, costs, risks, operations, and reversibility.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed decision
+      description: State scope, ownership, trust boundaries, data, and integration effects.
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Impact review
+      options:
+        - label: Product/operating-model impact considered
+        - label: Security, privacy, and compliance impact considered
+        - label: Data migration and recovery considered
+        - label: Reliability and observability considered
+        - label: ADR required if accepted
+          required: true
