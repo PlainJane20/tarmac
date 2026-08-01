@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- GitHub sign-in for the deployed application.
+- Deny-by-default GitHub username allowlist for login-only access.
+- Protected application pages and API routes with an authenticated session.
+- Dedicated TARMAC login experience and in-app sign-out control.
+
 ## TARMAC Foundation v0.1.0 — Flight Ready
 
 ### Added
