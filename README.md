@@ -173,13 +173,15 @@ Set the following server-side environment variables locally and in the hosting e
 
 ```dotenv
 AUTH_SECRET="a-random-secret-with-at-least-32-bytes"
+AUTH_URL="https://your-deployed-application.example"
 AUTH_GITHUB_ID="github-oauth-client-id"
 AUTH_GITHUB_SECRET="github-oauth-client-secret"
 AUTHORIZED_GITHUB_USERS="PlainJane20"
 ```
 
 `AUTHORIZED_GITHUB_USERS` accepts a comma-separated list. If it is empty or missing, all GitHub
-accounts are denied by default.
+accounts are denied by default. Set `AUTH_URL` to the public origin in reverse-proxy environments
+such as Railway so OAuth callbacks never use the container's internal address.
 
 ### Validate the foundation
 
