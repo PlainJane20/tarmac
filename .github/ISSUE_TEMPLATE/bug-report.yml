@@ -1,20 +1,40 @@
 name: Bug report
-description: Report a reproducible behavior defect.
+description: Report a reproducible behavior, control, documentation, or site defect.
 title: "bug: "
 labels: [bug]
 body:
   - type: textarea
     attributes:
       label: What happened?
+      description: Include the affected TARMAC capability, route, document, or workflow.
     validations:
       required: true
   - type: textarea
     attributes:
       label: Steps to reproduce
+      description: Use synthetic data and remove credentials or confidential information.
     validations:
       required: true
   - type: textarea
     attributes:
       label: Expected behavior
+      description: Describe the correct user, decision, or control outcome.
     validations:
       required: true
+  - type: dropdown
+    attributes:
+      label: Impact
+      options:
+        - Documentation or visual issue
+        - User workflow blocked
+        - Incorrect metric or value output
+        - Lifecycle/control behavior affected
+        - Security or privacy concern (do not submit here—use private reporting)
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Repository safety
+      options:
+        - label: This report contains no credentials, production data, personal data, or confidential material.
+          required: true

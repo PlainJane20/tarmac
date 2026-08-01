@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/PlainJane20/tarmac/security/policy
+    about: Report suspected vulnerabilities privately. Never include secrets in a public issue.
+  - name: Open product decisions
+    url: https://github.com/PlainJane20/tarmac/blob/main/flight-deck/11-open-decisions.md
+    about: Review ownership, license, contribution, deployment, and financial-model decisions.

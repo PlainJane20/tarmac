@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Governed release decision flow</title>
+  <desc id="desc">Evidence is verified by automation, evaluated by policy, decided by a release authority, and written to audit.</desc>
+  <rect width="1200" height="700" fill="#07111f"/>
+  <text x="70" y="76" fill="#f4f1e8" font-family="Arial, sans-serif" font-size="34" font-weight="700">Governed Release Decision</text>
+  <text x="70" y="108" fill="#a9b7c6" font-family="Arial, sans-serif" font-size="15">Automation prepares and evaluates. An accountable person authorizes. Audit preserves why.</text>
+  <g stroke="#17324a" stroke-width="2"><path d="M190 185V610M420 185V610M650 185V610M880 185V610M1110 185V610"/></g>
+  <g fill="#12263a" stroke="#5eead4" stroke-width="2" font-family="Arial, sans-serif" text-anchor="middle"><rect x="95" y="145" width="190" height="64" rx="14"/><rect x="325" y="145" width="190" height="64" rx="14"/><rect x="555" y="145" width="190" height="64" rx="14"/><rect x="785" y="145" width="190" height="64" rx="14"/><rect x="1015" y="145" width="190" height="64" rx="14"/><text x="190" y="184" fill="#f4f1e8">Evidence Sources</text><text x="420" y="184" fill="#f4f1e8">Automation</text><text x="650" y="184" fill="#f4f1e8">Policy</text><text x="880" y="184" fill="#f4f1e8">Release Authority</text><text x="1110" y="184" fill="#f4f1e8">Audit</text></g>
+  <g stroke="#5eead4" stroke-width="3" fill="none"><path d="M190 270H420M420 340H650M650 420H880M880 500H1110M1110 570H420"/></g>
+  <g fill="#07111f"><path d="M420 270l-12-7v14z"/><path d="M650 340l-12-7v14z"/><path d="M880 420l-12-7v14z"/><path d="M1110 500l-12-7v14z"/><path d="M420 570l12-7v14z"/></g>
+  <g fill="#a9b7c6" font-family="Arial, sans-serif" font-size="14"><text x="250" y="258">Signed events and evidence</text><text x="474" y="328">Verified, normalized snapshot</text><text x="704" y="408">Findings, blockers, waivers</text><text x="933" y="488">Decision and rationale</text><text x="660" y="558">Governed decision event</text></g>
+  <rect x="562" y="606" width="328" height="48" rx="12" fill="#2a1f0a" stroke="#f5b942"/><text x="726" y="636" fill="#f5b942" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="700">A WAIVER RECORDS RISK — IT DOES NOT ERASE A FAILURE</text>
+</svg>

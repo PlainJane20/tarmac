@@ -1,22 +1,42 @@
 name: Feature request
-description: Propose a focused product capability for TARMAC.
+description: Propose a focused TARMAC capability with a measurable user outcome.
 title: "feat: "
 labels: [enhancement]
 body:
   - type: textarea
     attributes:
-      label: Problem to solve
-      description: Describe the delivery, portfolio, or governance problem.
+      label: Problem and user
+      description: Which user has which decision, flow, evidence, or outcome problem?
     validations:
       required: true
   - type: textarea
     attributes:
       label: Proposed outcome
-      description: Describe the desired user-visible outcome and success measure.
+      description: Describe user-visible behavior and evidence of success.
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Primary TARMAC capability
+      options:
+        - Triage
+        - Architecture
+        - Release
+        - Monitoring
+        - Automation & CI/CD
+        - Compliance & Governance
+        - Foundation or developer experience
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Measures and guardrails
+      description: Define how the outcome could be measured and what must not get worse.
     validations:
       required: true
   - type: checkboxes
     attributes:
-      label: Control impact
+      label: Impact prompts
       options:
-        - label: This may affect lifecycle gates, approvals, auditability, or role access.
+        - label: Lifecycle, approval, evidence, audit, or authorization impact considered
+        - label: Metric/value claims are labeled and linked to a method

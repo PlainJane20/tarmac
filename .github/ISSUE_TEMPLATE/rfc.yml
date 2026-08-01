@@ -1,0 +1,42 @@
+name: Product or operating-model RFC
+description: Propose a material TARMAC product, workflow, metric, or operating-model change.
+title: "rfc: "
+labels: [rfc]
+body:
+  - type: textarea
+    attributes:
+      label: Problem and users
+      description: Who experiences the problem, and which decision or outcome is affected?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed outcome
+      description: Describe the behavior and evidence of success without prescribing implementation prematurely.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Options and tradeoffs
+      description: Include alternatives, risks, reversibility, and the cost of doing nothing.
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Primary TARMAC capability
+      options:
+        - Triage
+        - Architecture
+        - Release
+        - Monitoring
+        - Automation & CI/CD
+        - Compliance & Governance
+        - Cross-cutting or foundation
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Validation evidence
+      description: How could the project prove or disprove the proposal?
+    validations:
+      required: true

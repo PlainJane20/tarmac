@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">TARMAC enterprise context</title>
+  <desc id="desc">Authoritative enterprise systems connect through the TARMAC control plane to governed decisions and value insight.</desc>
+  <rect width="1200" height="700" fill="#f4f1e8"/>
+  <text x="60" y="70" fill="#07111f" font-family="Arial, sans-serif" font-size="34" font-weight="700">Enterprise Context</text>
+  <text x="60" y="105" fill="#526071" font-family="Arial, sans-serif" font-size="16">Authoritative systems remain authoritative. TARMAC governs the decisions between them.</text>
+  <g fill="#ffffff" stroke="#a9b7c6" stroke-width="2" font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="70" y="170" width="250" height="76" rx="14"/><rect x="70" y="278" width="250" height="76" rx="14"/><rect x="70" y="386" width="250" height="76" rx="14"/><rect x="70" y="494" width="250" height="76" rx="14"/>
+    <text x="195" y="215" fill="#07111f" font-size="17">Strategy &amp; Finance</text><text x="195" y="323" fill="#07111f" font-size="17">Planning &amp; Work</text><text x="195" y="431" fill="#07111f" font-size="17">Source · CI/CD · Quality</text><text x="195" y="539" fill="#07111f" font-size="17">ITSM · Observability</text>
+  </g>
+  <g stroke="#0f766e" stroke-width="3" fill="none"><path d="M320 208H472M320 316H472M320 424H472M320 532H472"/></g>
+  <rect x="472" y="210" width="300" height="330" rx="36" fill="#07111f" stroke="#5eead4" stroke-width="3"/>
+  <text x="622" y="290" fill="#5eead4" font-family="Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="3">CONTROL PLANE</text>
+  <text x="622" y="350" fill="#f4f1e8" font-family="Arial, sans-serif" font-size="42" font-weight="700" text-anchor="middle">TARMAC</text>
+  <g fill="#a9b7c6" font-family="Arial, sans-serif" font-size="15" text-anchor="middle"><text x="622" y="397">Lifecycle · Evidence · Policy</text><text x="622" y="427">Decisions · Exceptions · Audit</text><text x="622" y="457">Automation · Compliance</text></g>
+  <g stroke="#0f766e" stroke-width="3" fill="none"><path d="M772 300H900M772 450H900"/></g>
+  <g fill="#ffffff" stroke="#0f766e" stroke-width="2" font-family="Arial, sans-serif" text-anchor="middle"><rect x="900" y="252" width="240" height="96" rx="16"/><rect x="900" y="402" width="240" height="96" rx="16"/><text x="1020" y="294" fill="#07111f" font-size="18" font-weight="700">Governed Decisions</text><text x="1020" y="321" fill="#526071" font-size="14">Owners · Evidence · Rationale</text><text x="1020" y="444" fill="#07111f" font-size="18" font-weight="700">Portfolio &amp; Value</text><text x="1020" y="471" fill="#526071" font-size="14">Flow · Production · Benefits</text></g>
+</svg>
