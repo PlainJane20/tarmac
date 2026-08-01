@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AlertTriangle, ArrowUpRight, CheckCircle2, ChevronRight, CircleDollarSign, Clock3, ShieldCheck, Users } from "lucide-react";
+import { signOut } from "next-auth/react";
+import { AlertTriangle, ArrowUpRight, CheckCircle2, ChevronRight, CircleDollarSign, Clock3, LogOut, ShieldCheck, Users } from "lucide-react";
 import { calculateSri, lifecycleStages } from "@/lib/lifecycle";
 import { BrandMark } from "@/components/brand-mark";
 
@@ -20,7 +21,7 @@ function HealthBadge({ health }: { health: string }) {
   return <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${classes}`}>{health}</span>;
 }
 
-export function CommandCenter() {
+export function CommandCenter({ userName }: { userName: string }) {
   const [selected, setSelected] = useState(0);
   const [impact, setImpact] = useState(4);
   const [effort, setEffort] = useState(3);
@@ -31,7 +32,20 @@ export function CommandCenter() {
     <header className="border-b border-slate-200 bg-white px-6 py-4 lg:px-10">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="flex items-center gap-3"><BrandMark /><div><h1 className="text-lg font-bold tracking-tight text-slate-900">TARMAC</h1><p className="text-xs text-slate-500">Enterprise IT delivery control plane</p></div></div>
-        <div className="flex items-center gap-3"><span className="hidden text-sm text-slate-500 sm:inline">Portfolio period · Q3 FY26</span><button className="rounded-lg bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white shadow-sm">New intake</button></div>
+        <div className="flex items-center gap-3">
+          <span className="hidden text-sm text-slate-500 lg:inline">{userName}</span>
+          <span className="hidden text-sm text-slate-500 sm:inline">Portfolio period · Q3 FY26</span>
+          <button className="rounded-lg bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white shadow-sm">New intake</button>
+          <button
+            type="button"
+            onClick={() => signOut({ redirectTo: "/login" })}
+            className="grid size-9 place-items-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-800"
+            aria-label="Sign out"
+            title="Sign out"
+          >
+            <LogOut className="size-4" />
+          </button>
+        </div>
       </div>
     </header>
     <div className="mx-auto max-w-7xl px-6 py-8 lg:px-10">

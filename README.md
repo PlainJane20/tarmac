@@ -161,6 +161,26 @@ npm run dev
 
 Open `http://localhost:3000` for the Command Center and `/triage` for the RCA workbench.
 
+### Login protection
+
+The application uses GitHub sign-in and denies access unless the GitHub login is included in
+`AUTHORIZED_GITHUB_USERS`. Configure a GitHub OAuth app with these URLs:
+
+- Homepage URL: the deployed application URL
+- Authorization callback URL: `<application-url>/api/auth/callback/github`
+
+Set the following server-side environment variables locally and in the hosting environment:
+
+```dotenv
+AUTH_SECRET="a-random-secret-with-at-least-32-bytes"
+AUTH_GITHUB_ID="github-oauth-client-id"
+AUTH_GITHUB_SECRET="github-oauth-client-secret"
+AUTHORIZED_GITHUB_USERS="PlainJane20"
+```
+
+`AUTHORIZED_GITHUB_USERS` accepts a comma-separated list. If it is empty or missing, all GitHub
+accounts are denied by default.
+
 ### Validate the foundation
 
 ```bash
