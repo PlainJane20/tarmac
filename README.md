@@ -201,3 +201,22 @@ TARMAC Foundation v0.1.0 is a personal portfolio and product-design milestone. I
 The repository currently remains **All Rights Reserved**. No open-source license has been selected. See [Open decisions](flight-deck/11-open-decisions.md) before publishing, accepting external contributions, or representing the project as open source.
 
 Copyright © 2026 Navi Sohi. All rights reserved.
+
+---
+
+## Contact
+
+<div align="center">
+
+### **Navi Sohi**
+*Technical Program Manager & Automation Engineer*
+
+<br>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/navisohi/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PlainJane20)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nks.ai.dev@gmail.com)
+
+<br>
+
+</div>
