@@ -97,6 +97,16 @@ The existing Next.js application demonstrates:
 
 The application remains an early-stage reference implementation. Production identity, authorization, durable integrations, operational controls, and formal compliance assessment are roadmap work.
 
+## Competencies demonstrated
+
+| Competency | Observable evidence |
+| --- | --- |
+| Enterprise operating-model design | Triage, architecture, release, monitoring, automation, and governance form one lifecycle |
+| Portfolio decision architecture | Explicit states, approvals, risks, benefits, and evidence freshness support governed transitions |
+| Technical integration | Neutral control-plane architecture preserves Jira, GitHub, ServiceNow, CI/CD, and observability as systems of record |
+| Value governance | Capacity, avoidance, redirection, delay, risk reduction, realized benefits, and cash savings remain distinct |
+| Product and engineering leadership | Application, domain model, architecture catalog, flight deck, roadmap, standards, and contribution controls evolve together |
+
 ## Architecture
 
 ```mermaid
