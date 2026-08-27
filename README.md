@@ -1,3 +1,5 @@
+<img src="docs/tarmac-banner.svg" alt="TARMAC — The Enterprise Delivery Control Plane" width="100%" />
+
 # TARMAC
 
 ## The Enterprise Delivery Control Plane
