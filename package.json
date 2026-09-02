@@ -13,7 +13,8 @@
     "check:value": "node scripts/check-value.mjs",
     "check:repo": "node scripts/check-repository.mjs",
     "check:artifacts": "python3 scripts/check-artifacts.py",
-    "check:foundation": "npm run check:site && npm run check:docs && npm run check:value && npm run check:repo && npm run check:artifacts"
+    "check:foundation": "npm run check:site && npm run check:docs && npm run check:value && npm run check:repo && npm run check:artifacts && npm run test",
+    "test": "vitest run"
   },
   "dependencies": {
     "@prisma/client": "^6.2.1",
@@ -36,6 +37,7 @@
     "postcss": "^8.4.49",
     "prisma": "^6.2.1",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.11"
   }
 }
