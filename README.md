@@ -16,6 +16,16 @@ TARMAC is a source-visible, early-stage reference implementation for a modern In
 
 It is not a replacement for Jira, GitHub, Azure DevOps, ServiceNow, or other execution systems. TARMAC is the governance and orchestration layer that connects them.
 
+> **Related work in this portfolio:** [tpm-agent-os](https://github.com/PlainJane20/tpm-agent-os)
+> and [signalweave-ai](https://github.com/PlainJane20/signalweave-ai) also
+> model TPM/portfolio decision-governance territory — worth being upfront
+> about rather than presenting each as unrelated. Same underlying
+> interest, three different shapes: this one is a web-app governance
+> layer connecting Jira/GitHub/ServiceNow-style tools; tpm-agent-os is a
+> lean six-agent pipeline modeling the Staff TPM operating model
+> directly; signalweave-ai is a policy-gated decision control plane with
+> a dashboard, aimed at the seams between teams.
+
 **Explore:** [Product story](#why-tarmac) · [Operating model](#the-tarmac-operating-model) · [Flight Deck](flight-deck/README.md) · [Architecture](architecture/README.md) · [Metrics](docs/metrics/catalog.md) · [Roadmap](flight-deck/09-roadmap.md) · [Product site](site/README.md)
 
 ## Why TARMAC?
