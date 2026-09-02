@@ -18,8 +18,7 @@ It is not a replacement for Jira, GitHub, Azure DevOps, ServiceNow, or other exe
 
 > **Related work in this portfolio:** [tpm-agent-os](https://github.com/PlainJane20/tpm-agent-os)
 > and [signalweave-ai](https://github.com/PlainJane20/signalweave-ai) also
-> model TPM/portfolio decision-governance territory — worth being upfront
-> about rather than presenting each as unrelated. Same underlying
+> model TPM/portfolio decision-governance territory. Same underlying
 > interest, three different shapes: this one is a web-app governance
 > layer connecting Jira/GitHub/ServiceNow-style tools; tpm-agent-os is a
 > lean six-agent pipeline modeling the Staff TPM operating model
