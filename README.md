@@ -39,6 +39,17 @@ TARMAC makes the path explicit:
 - production signals feed the next portfolio decision; and
 - automation and compliance operate across the entire lifecycle.
 
+> **Why I built it:** this is a personal project, built to get real practice designing
+> the governance layer of an enterprise delivery lifecycle — the explicit gates, approval
+> states, and launch blockers that a portfolio review usually leaves as a verbal judgment
+> call, not something anyone could audit later. The lifecycle engine specifically was
+> practice writing that judgment down as testable rules: a stage can only advance one step
+> at a time, and `LAUNCH_READY` is blocked by any open SEV1/SEV2 defect or unapproved RCA
+> unless an explicit waiver says otherwise. That's the same shape as the Stack Rank Index
+> scoring formula and the Prisma domain model underneath it — turning "the PgM remembers
+> the exceptions" into something codified and testable, which is exactly what a portfolio
+> governance process needs to survive a Staff/Principal TPM leaving the room.
+
 ## What TARMAC means
 
 | Letter | Capability | Decision enabled |
