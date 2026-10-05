@@ -14,13 +14,13 @@ https://plainjane20.github.io/tarmac/
 
 TARMAC is a source-visible, early-stage reference implementation for a modern Information Technology Portfolio Management Office (ITPMO). It connects strategic demand, architecture decisions, release readiness, production signals, automation, and compliance into one measurable operating model.
 
-It is not a replacement for Jira, GitHub, Azure DevOps, ServiceNow, or other execution systems. TARMAC is the governance and orchestration layer that connects them.
+It is not a replacement for Jira, GitHub, Azure DevOps, ServiceNow, or other execution systems. The design intent is for TARMAC to be a governance and orchestration layer above them. **That integration layer is not built yet** — today the app runs on hardcoded sample data and has no connection to any of those tools (see [Known limitations](#known-limitations) and [Roadmap](#roadmap-not-yet-built)).
 
 > **Related work in this portfolio:** [tpm-agent-os](https://github.com/PlainJane20/tpm-agent-os)
 > and [signalweave-ai](https://github.com/PlainJane20/signalweave-ai) also
 > model TPM/portfolio decision-governance territory. Same underlying
 > interest, three different shapes: this one is a web-app governance
-> layer connecting Jira/GitHub/ServiceNow-style tools; tpm-agent-os is a
+> layer design (integrations with Jira/GitHub/ServiceNow-style tools are roadmap, not built); tpm-agent-os is a
 > lean six-agent pipeline modeling the Staff TPM operating model
 > directly; signalweave-ai is a policy-gated decision control plane with
 > a dashboard, aimed at the seams between teams.
@@ -101,24 +101,46 @@ flowchart LR
 | --- | --- |
 | Intake through email and spreadsheets | Structured triage with accountable outcomes and decision SLAs |
 | Architecture review as a late meeting | Versioned decisions and reusable evidence before commitment |
-| Release status assembled manually | Connected readiness evidence with explicit blockers and waivers |
-| Executive reporting as a monthly reconstruction | Live exception, flow, value, and production feedback |
-| Audit preparation as a separate project | Policy evidence and decision history retained in the workflow |
+| Release status assembled manually | Explicit blockers and waivers (lifecycle rules implemented); connected readiness evidence is roadmap |
+| Executive reporting as a monthly reconstruction | Target: exception, flow, value, and production feedback from connected sources (roadmap; the prototype shows sample data) |
+| Audit preparation as a separate project | Target: policy evidence and decision history retained in the workflow (domain model only; no audit trail is implemented) |
 | Tools optimized in isolation | A neutral control plane coordinating authoritative systems |
 
-TARMAC shifts the ITPMO from status collection to portfolio flow, decision enablement, and value realization.
+The table describes the operating model TARMAC is designed around, not capabilities the current code delivers. TARMAC aims to shift the ITPMO from status collection to portfolio flow, decision enablement, and value realization.
 
 ## Current prototype
 
-The existing Next.js application demonstrates:
+The existing Next.js application contains:
 
-- an executive command center;
-- portfolio health, earned-value, dependency, and capacity signals;
-- an explicit lifecycle and launch-gate engine;
-- defect and root-cause-analysis governance; and
-- a Prisma domain model for programs, approvals, risks, releases, audit, and benefits.
+- an executive command center UI (`components/command-center.tsx`) populated from **three hardcoded sample programs**, showing illustrative health, CPI/SPI, and lifecycle-stage views;
+- a defect and RCA triage workbench UI (`components/triage-workbench.tsx`) populated from hardcoded sample defects;
+- a tested lifecycle and launch-gate rules engine (`lib/lifecycle.ts`): stages advance one step at a time, and `LAUNCH_READY` is blocked by open SEV1/SEV2 defects or unapproved RCAs unless waived;
+- four API routes: GitHub sign-in (`/api/auth`), `POST /api/defects`, `POST /api/programs`, and `POST /api/programs/transition`. The defects, programs, and transition routes validate input with zod and compute results (SLA due date and RCA requirement, blast radius and Stack Rank Index, transition allowed/denied) but **do not read from or write to a database**; and
+- a Prisma schema (`prisma/schema.prisma`) modeling programs, approvals, risks, releases, audit, and benefits. It is validated in CI but is not wired to the UI or API.
 
-The application remains an early-stage reference implementation. Production identity, authorization, durable integrations, operational controls, and formal compliance assessment are roadmap work.
+The application is an early-stage reference implementation with sample data. It is not a working portfolio tool.
+
+## Known limitations
+
+- **Sample data only.** The command center and triage workbench render hardcoded programs and defects. Nothing shown reflects real portfolio, flow, value, or production data.
+- **No integrations.** There is no code connecting to Jira, GitHub (beyond sign-in), Azure DevOps, ServiceNow, CI/CD, or observability systems.
+- **No persistence.** API routes do not persist; the Prisma model is not used at runtime. There are no outbox/event or evidence-freshness mechanisms in code.
+- **Minimal API surface.** Only auth, defects, programs, and program-transition routes exist.
+- **Thin automated testing.** One test file (`lib/lifecycle.test.ts`) covers the lifecycle engine. There are no UI, API-route, or database tests.
+- **Mostly documentation checks.** The `check:*` scripts verify docs, the static site, the value model, and repository hygiene (for example, no committed secrets); they do not test application behavior.
+- **Not production-ready.** Production identity, authorization, operational controls, and any formal compliance assessment have not been done.
+
+## Roadmap (not yet built)
+
+Planned, with no implementation yet:
+
+- connectors and an event/outbox pipeline for Jira, GitHub, Azure DevOps, ServiceNow, CI/CD, and observability;
+- evidence provenance and freshness tracking;
+- live exception, flow, value, and production-feedback reporting from connected sources;
+- persistence of programs, defects, approvals, and audit history through Prisma; and
+- audit and compliance evidence retained in the workflow.
+
+See the [roadmap](flight-deck/09-roadmap.md) for detail.
 
 ## Competencies demonstrated
 
@@ -126,11 +148,13 @@ The application remains an early-stage reference implementation. Production iden
 | --- | --- |
 | Enterprise operating-model design | Triage, architecture, release, monitoring, automation, and governance form one lifecycle |
 | Portfolio decision architecture | Explicit states, approvals, risks, benefits, and evidence freshness support governed transitions |
-| Technical integration | Neutral control-plane architecture preserves Jira, GitHub, ServiceNow, CI/CD, and observability as systems of record |
+| Technical integration (design) | Architecture documents keep Jira, GitHub, ServiceNow, CI/CD, and observability as systems of record; no integration code exists yet |
 | Value governance | Capacity, avoidance, redirection, delay, risk reduction, realized benefits, and cash savings remain distinct |
 | Product and engineering leadership | Application, domain model, architecture catalog, flight deck, roadmap, standards, and contribution controls evolve together |
 
-## Architecture
+## Target architecture
+
+This diagram shows the intended design. Currently implemented: the experience layer (with sample data), a few validating API routes, and the lifecycle rules in the domain layer. The database, events, tool integrations, and evidence components are not yet built.
 
 ```mermaid
 flowchart TB
@@ -143,7 +167,7 @@ flowchart TB
   Evidence --> Domain
 ```
 
-External systems remain authoritative for their native records. They cannot silently advance governed TARMAC state. Explore the [architecture catalog](architecture/README.md) and [diagram gallery](architecture/diagrams.md).
+The design principle is that external systems remain authoritative for their native records and cannot silently advance governed TARMAC state. Explore the [architecture catalog](architecture/README.md) and [diagram gallery](architecture/diagrams.md).
 
 ## Value without inflated claims
 
@@ -217,6 +241,8 @@ accounts are denied by default. Set `AUTH_URL` to the public origin in reverse-p
 such as Railway so OAuth callbacks never use the container's internal address.
 
 ### Validate the foundation
+
+These are mainly documentation, site, and repository-hygiene checks (plus `npm run test` for the lifecycle unit tests); they do not exercise integrations.
 
 ```bash
 npm run check:site
